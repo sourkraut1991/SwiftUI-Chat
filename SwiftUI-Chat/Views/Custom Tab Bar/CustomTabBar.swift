@@ -20,17 +20,23 @@ struct CustomTabBar: View {
         HStack (alignment: .center) {
             
             Button {
-                // Switch to Chats
+                // Switch to chats
                 selectedTab = .chats
+                
             } label: {
-                TabBarButton(buttonText: "Chats", imageName: "bubble.left", isActive: selectedTab == .chats)
+                
+                TabBarButton(buttonText: "Chats",
+                             imageName: "bubble.left",
+                             isActive: selectedTab == .chats)
                 
             }
             .tint(Color("icons-secondary"))
+            
             Button {
-                // Add Chat
+                // New chat
             } label: {
-                VStack {
+                
+                VStack (alignment: .center, spacing: 4) {
                     Image(systemName: "plus.circle.fill")
                         .resizable()
                         .scaledToFit()
@@ -39,17 +45,28 @@ struct CustomTabBar: View {
                     Text("New Chat")
                         .font(Font.tabBar)
                 }
+                
             }
             .tint(Color("icons-primary"))
+            
+            
+            
             Button {
-                // Switch to Contacts
+                // Switch to contacts
                 selectedTab = .contacts
             } label: {
-                TabBarButton(buttonText: "Contacts", imageName: "person", isActive: selectedTab == .contacts)
+                
+                TabBarButton(buttonText: "Contacts",
+                             imageName: "person",
+                             isActive: selectedTab == .contacts)
             }
             .tint(Color("icons-secondary"))
+            
+            
         }
         .frame(height: 82)
+        
+        
     }
 }
 

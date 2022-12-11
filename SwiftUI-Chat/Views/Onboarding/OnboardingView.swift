@@ -7,14 +7,34 @@
 
 import SwiftUI
 
+enum OnboardingStep: Int {
+    case welcome = 0
+    case phonenumber = 1
+    case verification = 2
+    case profile = 3
+    case contacts = 4
+    
+}
+
+
 struct OnboardingView: View {
+    @Binding var isOnboarding: Bool
+    @State var currentStep: OnboardingStep = .welcome
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        ZStack {
+            Color("background")
+                .ignoresSafeArea(edges: [.top, .bottom])
+            
+            switch currentStep {
+            case .welcome: WelcomeView(currentStep: $currentStep)
+            case .phonenumber: PhoneNumberView(currentStep: $currentStep)
+            case .verification: VerificaitonView(currentStep: $currentStep)
+            case .profile: CreateProfileView(currentStep: $currentStep)
+            case .contacts: SyncContactsView(isOnboarding: $isOnboarding)
+            }
+        }
     }
 }
 
-struct OnboardingView_Previews: PreviewProvider {
-    static var previews: some View {
-        OnboardingView()
-    }
-}
