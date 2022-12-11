@@ -9,7 +9,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.googleusercontent.apps.474343501593-br4vi6ismm9b2m5plud41ujvc8tdq7af</string>
+				<string>com.googleusercontent.apps.166183612193-qhg1ntf90r5ccouu8chudjoqnumhul2r</string>
 			</array>
 		</dict>
 	</array>
@@ -17,5 +17,7 @@
 	<array>
 		<string>LexendDeca-Regular.ttf</string>
 	</array>
+	<key>NSContactsUsageDescription</key>
+	<string>Sync your contacts to chat with them</string>
 </dict>
 </plist>
