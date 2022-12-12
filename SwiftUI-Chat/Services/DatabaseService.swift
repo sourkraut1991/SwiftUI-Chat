@@ -8,6 +8,7 @@
 import Foundation
 import Contacts
 import Firebase
+import UIKit
 
 class DatabaseService {
     
@@ -36,7 +37,7 @@ class DatabaseService {
         
         // Perform queries while we still have phone numbers to look up
         while !lookupPhoneNumbers.isEmpty {
-        
+            
             // Get the first < 10 phone numbers to look up
             let tenPhoneNumbers = Array(lookupPhoneNumbers.prefix(10))
             
@@ -45,7 +46,7 @@ class DatabaseService {
             
             // Look up the first 10
             let query = db.collection("users").whereField("phone", in: tenPhoneNumbers)
-        
+            
             // Retrieve the users that are on the platform
             query.getDocuments { snapshot, error in
                 
@@ -76,4 +77,53 @@ class DatabaseService {
         
     }
     
+    func setUserProfile(firstName: String, lastName: String, image: UIImage?, completion: @escaping (Bool) -> Void) {
+        
+        // Check if user is logged in
+        
+        
+        
+        // Get a reference to firestore
+        let db = Firestore.firestore()
+        
+        
+        // Set the profile data
+        let doc = db.collection("users").document()
+        doc.setData(["firstname": firstName,
+                     "lastname": lastName])
+        // Check if an image is passed through
+        if let image = image {
+                        
+            // Create storage reference
+            let storageRef = Storage.storage().reference()
+            
+            // Turn our image into data
+            let imageData = image.jpegData(compressionQuality: 0.8)
+            
+            // Check that we were able to convert it to data
+            guard imageData != nil else {
+                return
+            }
+            
+            // Specify the file path and name
+            let path = "images/\(UUID().uuidString).jpg"
+            let fileRef = storageRef.child(path)
+            
+            // Set that image path to the profile
+            let uploadTask = fileRef.putData(imageData!, metadata: nil) { meta, error in
+                if error == nil && meta != nil {
+                    doc.setData(["photo": path], merge: true) { error in
+                        if error == nil {
+                            // Success, notify  caller
+                            completion(true)
+                        }
+                    }
+                }
+                else {
+                    // Upload wasn't successful, notify caller
+                    completion(false)
+                }
+            }
+        }
+    }
 }

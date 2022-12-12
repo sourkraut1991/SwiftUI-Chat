@@ -10,6 +10,7 @@
 		643EDBBD2945DBF50014DE61 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643EDBBC2945DBF50014DE61 /* User.swift */; };
 		643EDBBF2945DCE70014DE61 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643EDBBE2945DCE70014DE61 /* DatabaseService.swift */; };
 		643EDBC12945DF5D0014DE61 /* TextHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643EDBC02945DF5D0014DE61 /* TextHelper.swift */; };
+		643EDBC7294741B20014DE61 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643EDBC6294741B20014DE61 /* ImagePicker.swift */; };
 		6486EC1F29443688003C5437 /* LexendDeca-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6486EC1C29443687003C5437 /* LexendDeca-Regular.ttf */; };
 		6486EC2029443688003C5437 /* LexendDeca-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6486EC1D29443687003C5437 /* LexendDeca-SemiBold.ttf */; };
 		6486EC2129443688003C5437 /* LexendDeca-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6486EC1E29443687003C5437 /* LexendDeca-Bold.ttf */; };
@@ -49,6 +50,7 @@
 		643EDBBC2945DBF50014DE61 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		643EDBBE2945DCE70014DE61 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		643EDBC02945DF5D0014DE61 /* TextHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextHelper.swift; sourceTree = "<group>"; };
+		643EDBC6294741B20014DE61 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		6486EC1C29443687003C5437 /* LexendDeca-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LexendDeca-Regular.ttf"; sourceTree = "<group>"; };
 		6486EC1D29443687003C5437 /* LexendDeca-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LexendDeca-SemiBold.ttf"; sourceTree = "<group>"; };
 		6486EC1E29443687003C5437 /* LexendDeca-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LexendDeca-Bold.ttf"; sourceTree = "<group>"; };
@@ -102,11 +104,12 @@
 			children = (
 				6486EC2D29443B5A003C5437 /* OnboardingView.swift */,
 				6486EC3629443B95003C5437 /* VerificationView.swift */,
+				643EDBC6294741B20014DE61 /* ImagePicker.swift */,
 				6486EC3829443B9F003C5437 /* WelcomeView.swift */,
 				6486EC4D2944577F003C5437 /* VerificaitonView.swift */,
+				6486EC53294457B2003C5437 /* PhoneNumberView.swift */,
 				6486EC4F29445788003C5437 /* CreateProfileView.swift */,
 				6486EC5129445796003C5437 /* SyncContactsView.swift */,
-				6486EC53294457B2003C5437 /* PhoneNumberView.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				6486EC5229445796003C5437 /* SyncContactsView.swift in Sources */,
 				643EDBBD2945DBF50014DE61 /* User.swift in Sources */,
 				6486EC2C29443B46003C5437 /* ChatListView.swift in Sources */,
+				643EDBC7294741B20014DE61 /* ImagePicker.swift in Sources */,
 				6486EC5029445788003C5437 /* CreateProfileView.swift in Sources */,
 				64B7E5A3294332D8005BB1D3 /* SwiftUI_ChatApp.swift in Sources */,
 				6486EC54294457B2003C5437 /* PhoneNumberView.swift in Sources */,
