@@ -183,9 +183,9 @@
 		64B7E5B129433313005BB1D3 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				6486EC5529445980003C5437 /* OnboardingButtonStyle.swift */,
 				6486EC2F29443B64003C5437 /* ChatViewModel.swift */,
 				6486EC3129443B6F003C5437 /* ContactsViewModel.swift */,
-				6486EC3329443B78003C5437 /* AuthViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -209,8 +209,8 @@
 		64B7E5B429433331005BB1D3 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				6486EC5529445980003C5437 /* OnboardingButtonStyle.swift */,
 				6486EC2329443936003C5437 /* Fonts.swift */,
+				6486EC3329443B78003C5437 /* AuthViewModel.swift */,
 				6486EC5829457F3C003C5437 /* CreateProfileTextfieldStyle.swift */,
 				643EDBC02945DF5D0014DE61 /* TextHelper.swift */,
 			);

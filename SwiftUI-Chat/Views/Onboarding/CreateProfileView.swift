@@ -85,6 +85,7 @@ struct CreateProfileView: View {
         Button {
             // Prevent double taps
             isSaveButtonDisabled = true
+            
             // Save the data
             DatabaseService().setUserProfile(firstName: firstName,
                                              lastName: lastName,
@@ -94,6 +95,7 @@ struct CreateProfileView: View {
                 }
                 else {
                     // TODO: Show error message to the user
+               
                 }
                 isSaveButtonDisabled = true
             }
@@ -105,6 +107,7 @@ struct CreateProfileView: View {
         .disabled(isSaveButtonDisabled)
         .padding(.bottom, 82)
     }
+        
         .padding(.horizontal)
         .confirmationDialog("From where?", isPresented: $isSourceMenuShowing, actions: {
             Button {

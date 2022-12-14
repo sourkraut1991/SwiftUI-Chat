@@ -9,6 +9,7 @@ import Foundation
 import Contacts
 import Firebase
 import UIKit
+import FirebaseStorage
 
 class DatabaseService {
     
@@ -37,7 +38,7 @@ class DatabaseService {
         
         // Perform queries while we still have phone numbers to look up
         while !lookupPhoneNumbers.isEmpty {
-            
+        
             // Get the first < 10 phone numbers to look up
             let tenPhoneNumbers = Array(lookupPhoneNumbers.prefix(10))
             
@@ -46,7 +47,7 @@ class DatabaseService {
             
             // Look up the first 10
             let query = db.collection("users").whereField("phone", in: tenPhoneNumbers)
-            
+        
             // Retrieve the users that are on the platform
             query.getDocuments { snapshot, error in
                 
@@ -79,21 +80,20 @@ class DatabaseService {
     
     func setUserProfile(firstName: String, lastName: String, image: UIImage?, completion: @escaping (Bool) -> Void) {
         
-        // Check if user is logged in
+        // TODO: Guard against logged out users
         
-        
-        
-        // Get a reference to firestore
+        // Get a reference to Firestore
         let db = Firestore.firestore()
         
-        
         // Set the profile data
+        // TODO: After implementing authentication, instead create a document with the actual user's id
         let doc = db.collection("users").document()
         doc.setData(["firstname": firstName,
                      "lastname": lastName])
+        
         // Check if an image is passed through
         if let image = image {
-                        
+        
             // Create storage reference
             let storageRef = Storage.storage().reference()
             
@@ -109,21 +109,28 @@ class DatabaseService {
             let path = "images/\(UUID().uuidString).jpg"
             let fileRef = storageRef.child(path)
             
-            // Set that image path to the profile
             let uploadTask = fileRef.putData(imageData!, metadata: nil) { meta, error in
-                if error == nil && meta != nil {
+                
+                if error == nil && meta != nil
+                {
+                    // Set that image path to the profile
                     doc.setData(["photo": path], merge: true) { error in
                         if error == nil {
-                            // Success, notify  caller
+                            // Success, notify caller
                             completion(true)
                         }
                     }
                 }
                 else {
+                    
                     // Upload wasn't successful, notify caller
                     completion(false)
                 }
             }
+            
+            
         }
+        
     }
+    
 }
