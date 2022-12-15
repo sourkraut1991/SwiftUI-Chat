@@ -16,6 +16,9 @@ class AuthViewModel {
     static func getLoggedInUserId() -> String {
         return Auth.auth().currentUser?.uid ?? ""
     }
+    static func getLoggedInUserPhone() -> String {
+        return Auth.auth().currentUser?.phoneNumber ?? ""
+    }
     static func logout() {
         try? Auth.auth().signOut()
     }

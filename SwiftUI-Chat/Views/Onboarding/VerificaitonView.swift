@@ -9,8 +9,10 @@ import SwiftUI
 import Combine
 
 struct VerificaitonView: View {
+    
     @Binding var currentStep: OnboardingStep
     @State var verificationCode = ""
+    
     var body: some View {
         VStack {
             
@@ -18,12 +20,13 @@ struct VerificaitonView: View {
                 .font(Font.titleText)
                 .padding(.top, 52)
             
-            Text("Enter the 6-digit verification code we sent to your device")
+            Text("Enter the 6-digit verification code we sent to your device.")
                 .font(Font.bodyParagraph)
                 .padding(.top, 12)
             
             // Textfield
             ZStack {
+                
                 Rectangle()
                     .frame(height: 56)
                     .foregroundColor(Color("input"))
@@ -32,16 +35,15 @@ struct VerificaitonView: View {
                     TextField("", text: $verificationCode)
                         .font(Font.bodyParagraph)
                         .keyboardType(.numberPad)
-                        .onReceive(Just(verificationCode)) { _ in TextHelper.limitText(&verificationCode, 6)
-                            
+                        .onReceive(Just(verificationCode)) { _ in
+                            TextHelper.limitText(&verificationCode, 6)
                         }
                     
-                   
                     Spacer()
                     
                     Button {
                         // Clear text field
-                    verificationCode = ""
+                        verificationCode = ""
                     } label: {
                         Image(systemName: "multiply.circle.fill")
                     }
@@ -52,15 +54,17 @@ struct VerificaitonView: View {
                         
                 }
                 .padding()
+                
             }
             .padding(.top, 34)
             
             Spacer()
             
             Button {
-                
-                // Send the verificaiton code to firebase
+                // Send the verification code to Firebase
                 AuthViewModel.verifyCode(code: verificationCode) { error in
+                    
+                    // Check for errors
                     if error == nil {
                         
                         // Move to the next step
@@ -71,14 +75,18 @@ struct VerificaitonView: View {
                     }
                 }
                 
-               
+                
+                
             } label: {
-            Text("Next")
+                Text("Next")
             }
             .buttonStyle(OnboardingButtonStyle())
-            .padding(.bottom, 82)
+            .padding(.bottom, 87)
+
+            
         }
-        .padding()
+        .padding(.horizontal)
+        
     }
 }
 

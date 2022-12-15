@@ -38,6 +38,7 @@ struct PhoneNumberView: View {
                             TextHelper.applyPatternOnNumbers(&phoneNumber,
                                                              pattern: "+# (###) ###-####",
                                                              replacementCharacter: "#")
+                          
                         }
                     
                     Spacer()
