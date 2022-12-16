@@ -12,6 +12,7 @@ struct VerificaitonView: View {
     
     @Binding var currentStep: OnboardingStep
     @State var verificationCode = ""
+    @Binding var isOnboarding: Bool
     
     var body: some View {
         VStack {
@@ -50,8 +51,8 @@ struct VerificaitonView: View {
                     .frame(width: 19, height: 19)
                     .tint(Color("icons-input"))
                     
-                        
-                        
+                    
+                    
                 }
                 .padding()
                 
@@ -66,10 +67,20 @@ struct VerificaitonView: View {
                     
                     // Check for errors
                     if error == nil {
-                        
-                        // Move to the next step
-                        currentStep = .profile
-                    }
+                        // Check if this user has a profile
+                        DatabaseService().checkUserProfile {
+                            exists in
+                            if exists {
+                                // End onboarding
+                                isOnboarding = false
+                            }
+                            else {
+                                
+                                // Move to the profile creation step
+                                currentStep = .profile
+                            }
+                        }
+                        }
                     else {
                         // TODO: Show error message
                     }
@@ -82,7 +93,7 @@ struct VerificaitonView: View {
             }
             .buttonStyle(OnboardingButtonStyle())
             .padding(.bottom, 87)
-
+            
             
         }
         .padding(.horizontal)

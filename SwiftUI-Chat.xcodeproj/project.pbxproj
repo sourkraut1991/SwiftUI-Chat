@@ -11,7 +11,6 @@
 		643EDBBF2945DCE70014DE61 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643EDBBE2945DCE70014DE61 /* DatabaseService.swift */; };
 		643EDBC12945DF5D0014DE61 /* TextHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643EDBC02945DF5D0014DE61 /* TextHelper.swift */; };
 		643EDBC7294741B20014DE61 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643EDBC6294741B20014DE61 /* ImagePicker.swift */; };
-		64668D552949F9E500A55508 /* TODO.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 64668D542949F9E500A55508 /* TODO.rtf */; };
 		6486EC1F29443688003C5437 /* LexendDeca-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6486EC1C29443687003C5437 /* LexendDeca-Regular.ttf */; };
 		6486EC2029443688003C5437 /* LexendDeca-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6486EC1D29443687003C5437 /* LexendDeca-SemiBold.ttf */; };
 		6486EC2129443688003C5437 /* LexendDeca-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6486EC1E29443687003C5437 /* LexendDeca-Bold.ttf */; };
@@ -39,7 +38,7 @@
 		6486EC54294457B2003C5437 /* PhoneNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6486EC53294457B2003C5437 /* PhoneNumberView.swift */; };
 		6486EC5629445980003C5437 /* OnboardingButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6486EC5529445980003C5437 /* OnboardingButtonStyle.swift */; };
 		6486EC5929457F3C003C5437 /* CreateProfileTextfieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6486EC5829457F3C003C5437 /* CreateProfileTextfieldStyle.swift */; };
-		64AD67B2294B4FB500CE8688 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 64AD67B1294B4FB500CE8688 /* GoogleService-Info.plist */; };
+		6486EC5B294599CA003C5437 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6486EC5A294599CA003C5437 /* GoogleService-Info.plist */; };
 		64B7E5A3294332D8005BB1D3 /* SwiftUI_ChatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B7E5A2294332D8005BB1D3 /* SwiftUI_ChatApp.swift */; };
 		64B7E5A5294332D8005BB1D3 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B7E5A4294332D8005BB1D3 /* RootView.swift */; };
 		64B7E5A7294332DB005BB1D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64B7E5A6294332DB005BB1D3 /* Assets.xcassets */; };
@@ -51,7 +50,6 @@
 		643EDBBE2945DCE70014DE61 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		643EDBC02945DF5D0014DE61 /* TextHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextHelper.swift; sourceTree = "<group>"; };
 		643EDBC6294741B20014DE61 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
-		64668D542949F9E500A55508 /* TODO.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = TODO.rtf; sourceTree = "<group>"; };
 		6486EC1C29443687003C5437 /* LexendDeca-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LexendDeca-Regular.ttf"; sourceTree = "<group>"; };
 		6486EC1D29443687003C5437 /* LexendDeca-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LexendDeca-SemiBold.ttf"; sourceTree = "<group>"; };
 		6486EC1E29443687003C5437 /* LexendDeca-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LexendDeca-Bold.ttf"; sourceTree = "<group>"; };
@@ -75,7 +73,7 @@
 		6486EC53294457B2003C5437 /* PhoneNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberView.swift; sourceTree = "<group>"; };
 		6486EC5529445980003C5437 /* OnboardingButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingButtonStyle.swift; sourceTree = "<group>"; };
 		6486EC5829457F3C003C5437 /* CreateProfileTextfieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfileTextfieldStyle.swift; sourceTree = "<group>"; };
-		64AD67B1294B4FB500CE8688 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		6486EC5A294599CA003C5437 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		64B7E59F294332D8005BB1D3 /* SwiftUI-Chat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI-Chat.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		64B7E5A2294332D8005BB1D3 /* SwiftUI_ChatApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_ChatApp.swift; sourceTree = "<group>"; };
 		64B7E5A4294332D8005BB1D3 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -102,7 +100,6 @@
 		6486EC3529443B83003C5437 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				6486EC5529445980003C5437 /* OnboardingButtonStyle.swift */,
 				6486EC2D29443B5A003C5437 /* OnboardingView.swift */,
 				643EDBC6294741B20014DE61 /* ImagePicker.swift */,
 				6486EC3829443B9F003C5437 /* WelcomeView.swift */,
@@ -126,9 +123,7 @@
 		64B7E596294332D8005BB1D3 = {
 			isa = PBXGroup;
 			children = (
-				64668D542949F9E500A55508 /* TODO.rtf */,
 				6486EC2529443B0C003C5437 /* Architecture.png */,
-				64AD67B1294B4FB500CE8688 /* GoogleService-Info.plist */,
 				64B7E5A1294332D8005BB1D3 /* SwiftUI-Chat */,
 				64B7E5A0294332D8005BB1D3 /* Products */,
 			);
@@ -146,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				6486EC22294437B0003C5437 /* Info.plist */,
+				6486EC5A294599CA003C5437 /* GoogleService-Info.plist */,
 				64B7E5A2294332D8005BB1D3 /* SwiftUI_ChatApp.swift */,
 				6486EC4B29444A88003C5437 /* AppDelegate.swift */,
 				64B7E5B029433309005BB1D3 /* Views */,
@@ -185,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				6486EC3329443B78003C5437 /* AuthViewModel.swift */,
+				6486EC5529445980003C5437 /* OnboardingButtonStyle.swift */,
 				6486EC2F29443B64003C5437 /* ChatViewModel.swift */,
 				6486EC3129443B6F003C5437 /* ContactsViewModel.swift */,
 			);
@@ -295,11 +292,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				64668D552949F9E500A55508 /* TODO.rtf in Resources */,
 				6486EC2029443688003C5437 /* LexendDeca-SemiBold.ttf in Resources */,
+				6486EC5B294599CA003C5437 /* GoogleService-Info.plist in Resources */,
 				6486EC2129443688003C5437 /* LexendDeca-Bold.ttf in Resources */,
 				6486EC2629443B0C003C5437 /* Architecture.png in Resources */,
-				64AD67B2294B4FB500CE8688 /* GoogleService-Info.plist in Resources */,
 				64B7E5AA294332DB005BB1D3 /* Preview Assets.xcassets in Resources */,
 				6486EC1F29443688003C5437 /* LexendDeca-Regular.ttf in Resources */,
 				64B7E5A7294332DB005BB1D3 /* Assets.xcassets in Resources */,
@@ -469,7 +465,6 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "SwiftUI-Chat/Info.plist";
-				INFOPLIST_KEY_NSContactsUsageDescription = "Sync your contacts to chat with them";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -500,7 +495,6 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "SwiftUI-Chat/Info.plist";
-				INFOPLIST_KEY_NSContactsUsageDescription = "Sync your contacts to chat with them";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

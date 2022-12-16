@@ -71,9 +71,3 @@ struct CustomTabBar: View {
         
     }
 }
-
-struct TabBarView_Previews: PreviewProvider {
-    static var previews: some View {
-        CustomTabBar(selectedTab: .constant(.contacts))
-    }
-}

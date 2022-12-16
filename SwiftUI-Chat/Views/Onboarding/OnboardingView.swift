@@ -30,7 +30,7 @@ struct OnboardingView: View {
             switch currentStep {
             case .welcome: WelcomeView(currentStep: $currentStep)
             case .phonenumber: PhoneNumberView(currentStep: $currentStep)
-            case .verification: VerificaitonView(currentStep: $currentStep)
+            case .verification: VerificaitonView(currentStep: $currentStep, isOnboarding: $isOnboarding)
             case .profile: CreateProfileView(currentStep: $currentStep)
             case .contacts: SyncContactsView(isOnboarding: $isOnboarding)
             }
