@@ -17,6 +17,7 @@ struct CustomTabBar: View {
     @Binding var selectedTab: Tabs
     
     var body: some View {
+    
         HStack (alignment: .center) {
             
             Button {

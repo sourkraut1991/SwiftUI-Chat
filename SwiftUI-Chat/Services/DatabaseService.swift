@@ -38,7 +38,7 @@ class DatabaseService {
         
         // Perform queries while we still have phone numbers to look up
         while !lookupPhoneNumbers.isEmpty {
-        
+            
             // Get the first < 10 phone numbers to look up
             let tenPhoneNumbers = Array(lookupPhoneNumbers.prefix(10))
             
@@ -47,7 +47,7 @@ class DatabaseService {
             
             // Look up the first 10
             let query = db.collection("users").whereField("phone", in: tenPhoneNumbers)
-        
+            
             // Retrieve the users that are on the platform
             query.getDocuments { snapshot, error in
                 
@@ -80,31 +80,27 @@ class DatabaseService {
     
     func setUserProfile(firstName: String, lastName: String, image: UIImage?, completion: @escaping (Bool) -> Void) {
         
-        // Is user logged in?
+        // Ensure that the user is logged in
         guard AuthViewModel.isUserLoggedIn() != false else {
             // User is not logged in
             return
         }
         
         // Get users phone number
-        let userPhone = TextHelper.sanitizePhoneNumber(AuthViewModel.getLoggedInUserPone())
-        
+        let userPhone = TextHelper.sanitizePhoneNumber(AuthViewModel.getLoggedInUserPhone())
         
         // Get a reference to Firestore
         let db = Firestore.firestore()
         
         // Set the profile data
-        // TODO: After implementing authentication, instead create a document with the actual user's uid
         let doc = db.collection("users").document(AuthViewModel.getLoggedInUserId())
         doc.setData(["firstname": firstName,
                      "lastname": lastName,
                      "phone": userPhone])
-                    
-                
         
         // Check if an image is passed through
         if let image = image {
-        
+            
             // Create storage reference
             let storageRef = Storage.storage().reference()
             
@@ -124,11 +120,21 @@ class DatabaseService {
                 
                 if error == nil && meta != nil
                 {
-                    // Set that image path to the profile
-                    doc.setData(["photo": path], merge: true) { error in
-                        if error == nil {
-                            // Success, notify caller
-                            completion(true)
+                    // Get full url to image
+                    fileRef.downloadURL { url, error in
+                        // Check for errors
+                        if url != nil && error == nil {
+                            // Set that image path to the profile
+                            doc.setData(["photo": url!.absoluteString], merge: true) { error in
+                                if error == nil {
+                                    // Success, notify caller
+                                    completion(true)
+                                }
+                            }
+                        }
+                        else {
+                            // Wasn't successful in getting download url for photo
+                            completion(false)
                         }
                     }
                 }
@@ -141,9 +147,12 @@ class DatabaseService {
             
             
         }
+        else {
+            // No Image was set
+            completion(true)
+        }
         
     }
-    
     
     func checkUserProfile(completion: @escaping (Bool) -> Void) {
         

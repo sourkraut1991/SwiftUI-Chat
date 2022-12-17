@@ -10,26 +10,45 @@ import SwiftUI
 struct RootView: View {
     
     @State var selectedTab: Tabs = .contacts
+    
     @State var isOnboarding = !AuthViewModel.isUserLoggedIn()
     
+    @State var isChatShowing = false
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        ZStack {
+            Color("background")
+                .ignoresSafeArea()
             
-            Spacer()
-            CustomTabBar(selectedTab: $selectedTab)
+            VStack {
+                
+                switch selectedTab {
+                case .chats:
+                    ChatListView()
+                case .contacts:
+                    ContactsView(isChatShowing: $isChatShowing)
+                }
+                
+                Spacer()
+                CustomTabBar(selectedTab: $selectedTab)
+                
+                
+            }
+            
+            .fullScreenCover(isPresented: $isOnboarding) {
+                // On Dismiss
+            } content: {
+                // Onboarding Sequence
+                OnboardingView(isOnboarding: $isOnboarding)
+            }
+            .fullScreenCover(isPresented: $isChatShowing, onDismiss: nil) {
+                
+                // The conversation view
+                ConversationView(isChatShowing: $isChatShowing)
+            }
+            
             
         }
-        .fullScreenCover(isPresented: $isOnboarding) {
-            // On Dismiss
-        } content: {
-            // Onboarding Sequence
-          OnboardingView(isOnboarding: $isOnboarding)
-        }
-
     }
 }
 

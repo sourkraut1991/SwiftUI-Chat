@@ -9,6 +9,7 @@ import Foundation
 import FirebaseAuth
 
 class AuthViewModel {
+    
     static func isUserLoggedIn() -> Bool {
         return Auth.auth().currentUser != nil
     }
@@ -17,7 +18,7 @@ class AuthViewModel {
         return Auth.auth().currentUser?.uid ?? ""
     }
     
-    static func getLoggedInUserPone() -> String {
+    static func getLoggedInUserPhone() -> String {
         return Auth.auth().currentUser?.phoneNumber ?? ""
     }
     
@@ -27,13 +28,13 @@ class AuthViewModel {
     
     static func sendPhoneNumber(phone: String, completion: @escaping (Error?) -> Void) {
         
-        // Send the phone number to the Firebase Auth
-        PhoneAuthProvider.provider()
-            .verifyPhoneNumber(phone, uiDelegate: nil)
+        // Send the phone number to Firebase Auth
+        PhoneAuthProvider.provider().verifyPhoneNumber(phone,
+                                                       uiDelegate: nil)
         { verificationId, error in
+            
             if error == nil {
-                
-                // Got the verification ID
+                // Got the verification id
                 UserDefaults.standard.set(verificationId, forKey: "authVerificationID")
                 
                 
@@ -43,26 +44,29 @@ class AuthViewModel {
                 // Notify the UI
                 completion(error)
             }
+            
         }
     }
+    
     static func verifyCode(code: String, completion: @escaping (Error?) -> Void) {
+        
         // Get the verification id from local storage
         let verificationId = UserDefaults.standard.string(forKey: "authVerificationID") ?? ""
-        // Send the code and the verification id to firebase
+        
+        // Send the code and the verification id to Firebase
         let credential = PhoneAuthProvider.provider().credential(
-            withVerificationID: verificationId,
-            verificationCode: code
+          withVerificationID: verificationId,
+          verificationCode: code
         )
-        // sign in the user
+        
+        // Sign in the user
         Auth.auth().signIn(with: credential) { authResult, error in
             
             DispatchQueue.main.async {
                 // Notify the UI
                 completion(error)
             }
-            
         }
     }
-    
-    
 }
+

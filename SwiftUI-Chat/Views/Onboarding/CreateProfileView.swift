@@ -83,6 +83,8 @@ struct CreateProfileView: View {
         Spacer()
         
         Button {
+            //TODO: Check that firstname/lastname fields are filled before allowing to continue
+            
             // Prevent double taps
             isSaveButtonDisabled = true
             
