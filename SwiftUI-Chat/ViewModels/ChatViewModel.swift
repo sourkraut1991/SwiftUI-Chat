@@ -6,3 +6,10 @@
 //
 
 import Foundation
+import SwiftUI
+
+class ChatViewMode: ObservableObject {
+    
+    var chats = [Chat]()
+    
+}
