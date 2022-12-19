@@ -9,13 +9,15 @@ import SwiftUI
 
 struct ConversationView: View {
     
+    @EnvironmentObject var chatViewModel: ChatViewModel
+    
     @Binding var isChatShowing: Bool
     
     @State var chatMessage = ""
-    
+        
     var body: some View {
         
-        VStack {
+        VStack(spacing: 0) {
             
             // Chat header
             HStack {
@@ -54,50 +56,40 @@ struct ConversationView: View {
                 
                 VStack (spacing: 24) {
                     
-                    // Their message
-                    HStack {
-
-//                        // Message
-                        Text("Lorem ipsum dolor sit amet")
-                            .font(Font.bodyParagraph)
-                            .foregroundColor(Color("text-primary"))
-                            .padding(.vertical, 16)
-                            .padding(.horizontal, 24)
-                            .background(Color("bubble-secondary"))
-                            .cornerRadius(30, corners: [.topLeft, .topRight, .bottomRight])
+                    ForEach (chatViewModel.messages) { msg in
                         
-                        Spacer()
+                        let isFromUser = msg.senderid == AuthViewModel.getLoggedInUserId()
                         
-                        // Timestamp
-                        Text("9:41")
-                            .font(Font.smallText)
-                            .foregroundColor(Color("text-timestamp"))
-                            .padding(.leading)
+                        // Dynamic Message
+                        HStack {
+                            
+                            if isFromUser {
+                                // Timestamp
+                                Text("9:41")
+                                    .font(Font.smallText)
+                                    .foregroundColor(Color("text-timestamp"))
+                                    .padding(.trailing)
+                                
+                                Spacer()
+                            }
+                            
+                            Text(msg.msg)
+                                .font(Font.bodyParagraph)
+                                .foregroundColor(isFromUser ? Color("text-button") : Color("text-primary"))
+                                .padding(.vertical, 16)
+                                .padding(.horizontal, 24)
+                                .background(isFromUser ? Color("bubble-primary") : Color("bubble-secondary"))
+                                .cornerRadius(30, corners: isFromUser ?  [.topLeft, .topRight, .bottomLeft] : [.topLeft, .topRight, .bottomRight])
+                            if !isFromUser {
+                                Spacer()
+                                Text("9:41")
+                                    .font(Font.smallText)
+                                    .foregroundColor(Color("text-timestamp"))
+                                    .padding(.leading)
+                            }
+                            
+                        }
                     }
-                    
-                    // Your message
-                    HStack {
-                        
-                        // Timestamp
-                        Text("9:41")
-                            .font(Font.smallText)
-                            .foregroundColor(Color("text-timestamp"))
-                            .padding(.trailing)
-                        
-                        Spacer()
-                        
-//                        // Message
-                        Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam")
-                            .font(Font.bodyParagraph)
-                            .foregroundColor(Color("text-button"))
-                            .padding(.vertical, 16)
-                            .padding(.horizontal, 24)
-                            .background(Color("bubble-primary"))
-                            .cornerRadius(30, corners: [.topLeft, .topRight, .bottomLeft])
-                        
-                    }
-                    
-                    
                 }
                 .padding(.horizontal)
                 .padding(.top, 24)
@@ -110,7 +102,7 @@ struct ConversationView: View {
                 Color("background")
                     .ignoresSafeArea()
                 
-                HStack {
+                HStack(spacing: 15) {
                     // Camera button
                     Button {
                         // TODO: Show picker
@@ -172,6 +164,10 @@ struct ConversationView: View {
                 .padding(.horizontal)
             }
             .frame(height: 76)
+        }
+        .onAppear {
+            // Call Chat View Model to retrieve all chat messages
+            chatViewModel.getMessages()
         }
         
         

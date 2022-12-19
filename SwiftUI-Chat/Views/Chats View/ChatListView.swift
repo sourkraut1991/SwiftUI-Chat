@@ -8,11 +8,26 @@
 import SwiftUI
 
 struct ChatListView: View {
+    
     @EnvironmentObject var ChatViewModel: ChatViewModel
+    
+    @Binding var isChatShowing: Bool
+    
     var body: some View {
         if ChatViewModel.chats.count > 0 {
             List(ChatViewModel.chats) { chat in
-                Text(chat.id ?? "Chat ID")
+               
+                Button {
+                    // Set selected chat for the chatviewmodel
+                    ChatViewModel.selectedChat = chat
+                    //display conversation view
+                    isChatShowing = true
+                    
+                } label: {
+                    Text(chat.id ?? "Chat ID")
+                }
+
+                
             }
         }
         else {
@@ -21,8 +36,3 @@ struct ChatListView: View {
     }
 }
 
-struct ChatListView_Previews: PreviewProvider {
-    static var previews: some View {
-        ChatListView()
-    }
-}

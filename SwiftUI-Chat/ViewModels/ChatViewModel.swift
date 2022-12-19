@@ -10,7 +10,13 @@ import SwiftUI
 
 class ChatViewModel: ObservableObject {
     
+    @EnvironmentObject var chatViewModel: ChatViewModel
+    
     @Published var chats = [Chat]()
+    
+    @Published var selectedChat: Chat?
+    
+    @Published var messages = [ChatMessage]()
     
     var databaseService = DatabaseService()
     
@@ -28,4 +34,15 @@ class ChatViewModel: ObservableObject {
         }
         
     }
-}
+    
+    func getMessages() {
+        // Check that there's a selected chat
+        
+        guard selectedChat != nil else {
+            return
+        }
+            databaseService.getAllMessages(chat: selectedChat!) { msgs in
+                self.messages = msgs
+            }
+        }
+    }
