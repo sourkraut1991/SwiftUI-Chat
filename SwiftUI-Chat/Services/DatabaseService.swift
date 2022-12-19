@@ -266,7 +266,80 @@ class DatabaseService {
              
          }
          
-     
+          /// This method returns all messages for a given chat
+          func getAllMessages(chat: Chat, completion: @escaping ([ChatMessage]) -> Void) {
+              
+              // Check that the id is not nil
+              guard chat.id != nil else {
+                  // Can't fetch data
+                  completion([ChatMessage]())
+                  return
+              }
+              
+              // Get a reference to the database
+              let db = Firestore.firestore()
+              
+              // Create the query
+              let msgsQuery = db.collection("chats")
+                  .document(chat.id!)
+                  .collection("msgs")
+                  .order(by: "timestamp")
+              
+              // Perform the query
+              msgsQuery.getDocuments { snapshot, error in
+                  
+                  if snapshot != nil && error == nil {
+                      
+                      // Loop through the msg documents and create ChatMessage instances
+                      var messages = [ChatMessage]()
+                      
+                      for doc in snapshot!.documents {
+                          
+                          let msg = try? doc.data(as: ChatMessage.self)
+                          
+                          if let msg = msg {
+                              messages.append(msg)
+                          }
+                      }
+                      
+                      // Return the results
+                      completion(messages)
+                  }
+                  else {
+                      print("Error in database retrieval")
+                  }
+                  
+              }
+              
+          
+              
+              
+              
+              
+          }
+          
+          /// Send a message to the database
+          func sendMessage(msg: String, chat: Chat) {
+              
+              // Check that it's a valid chat
+              guard chat.id != nil else {
+                  return
+              }
+              
+              // Get reference to database
+              let db = Firestore.firestore()
+              
+              // Add msg document
+              db.collection("chats")
+                  .document(chat.id!)
+                  .collection("msgs")
+                  .addDocument(data: ["imageurl": "",
+                                      "msg": msg,
+                                      "senderid": AuthViewModel.getLoggedInUserId(),
+                                      "timestamp": Date()])
+          }
+      }
+
          
          
          
