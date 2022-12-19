@@ -152,6 +152,16 @@ struct ConversationView: View {
                     // Send button
                     Button {
                         // TODO: Send message
+                        
+                        // Clean up text msg
+                        
+                        // Send Message
+                        chatViewModel.sendMessage(msg: chatMessage)
+                    
+                        
+                        //clear textbox
+                        chatMessage = ""
+                        
                     } label: {
                         Image(systemName: "paperplane.fill")
                             .resizable()
