@@ -17,6 +17,8 @@
 		646744AE294DD750006E496D /* ProfilePicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646744AD294DD750006E496D /* ProfilePicView.swift */; };
 		646744B0294DE676006E496D /* RoundedCornerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646744AF294DE676006E496D /* RoundedCornerExtension.swift */; };
 		646744B2294DF124006E496D /* Chat Data in the database.png in Resources */ = {isa = PBXBuildFile; fileRef = 646744B1294DF124006E496D /* Chat Data in the database.png */; };
+		647C4C7829509E2D00E6D571 /* DataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647C4C7729509E2D00E6D571 /* DataHelper.swift */; };
+		647C4C7A2951C94100E6D571 /* ChatsListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647C4C792951C94000E6D571 /* ChatsListRow.swift */; };
 		6486EC1F29443688003C5437 /* LexendDeca-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6486EC1C29443687003C5437 /* LexendDeca-Regular.ttf */; };
 		6486EC2029443688003C5437 /* LexendDeca-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6486EC1D29443687003C5437 /* LexendDeca-SemiBold.ttf */; };
 		6486EC2129443688003C5437 /* LexendDeca-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6486EC1E29443687003C5437 /* LexendDeca-Bold.ttf */; };
@@ -62,6 +64,8 @@
 		646744AD294DD750006E496D /* ProfilePicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePicView.swift; sourceTree = "<group>"; };
 		646744AF294DE676006E496D /* RoundedCornerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornerExtension.swift; sourceTree = "<group>"; };
 		646744B1294DF124006E496D /* Chat Data in the database.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Chat Data in the database.png"; sourceTree = "<group>"; };
+		647C4C7729509E2D00E6D571 /* DataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHelper.swift; sourceTree = "<group>"; };
+		647C4C792951C94000E6D571 /* ChatsListRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatsListRow.swift; sourceTree = "<group>"; };
 		6486EC1C29443687003C5437 /* LexendDeca-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LexendDeca-Regular.ttf"; sourceTree = "<group>"; };
 		6486EC1D29443687003C5437 /* LexendDeca-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LexendDeca-SemiBold.ttf"; sourceTree = "<group>"; };
 		6486EC1E29443687003C5437 /* LexendDeca-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LexendDeca-Bold.ttf"; sourceTree = "<group>"; };
@@ -121,6 +125,7 @@
 		646744A5294C76B1006E496D /* Chats View */ = {
 			isa = PBXGroup;
 			children = (
+				647C4C792951C94000E6D571 /* ChatsListRow.swift */,
 				6486EC2729443B33003C5437 /* ChatView.swift */,
 				6486EC2B29443B46003C5437 /* ChatListView.swift */,
 				646744AA294DD3B2006E496D /* ConversationView.swift */,
@@ -252,6 +257,7 @@
 				6486EC5829457F3C003C5437 /* CreateProfileTextfieldStyle.swift */,
 				643EDBC02945DF5D0014DE61 /* TextHelper.swift */,
 				646744AF294DE676006E496D /* RoundedCornerExtension.swift */,
+				647C4C7729509E2D00E6D571 /* DataHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -355,12 +361,14 @@
 				6486EC3429443B78003C5437 /* AuthViewModel.swift in Sources */,
 				6486EC2829443B33003C5437 /* ChatView.swift in Sources */,
 				6486EC3B29443BCB003C5437 /* CustomTabBar.swift in Sources */,
+				647C4C7A2951C94100E6D571 /* ChatsListRow.swift in Sources */,
 				6486EC5929457F3C003C5437 /* CreateProfileTextfieldStyle.swift in Sources */,
 				6486EC4C29444A88003C5437 /* AppDelegate.swift in Sources */,
 				6486EC2429443936003C5437 /* Fonts.swift in Sources */,
 				646744A9294C9808006E496D /* ContactRow.swift in Sources */,
 				6486EC3029443B64003C5437 /* ChatViewModel.swift in Sources */,
 				64B7E5A5294332D8005BB1D3 /* RootView.swift in Sources */,
+				647C4C7829509E2D00E6D571 /* DataHelper.swift in Sources */,
 				6486EC2A29443B3E003C5437 /* ContactsView.swift in Sources */,
 				6486EC5229445796003C5437 /* SyncContactsView.swift in Sources */,
 				643EDBBD2945DBF50014DE61 /* User.swift in Sources */,
