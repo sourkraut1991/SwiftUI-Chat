@@ -14,6 +14,8 @@ struct RootView: View {
     
     @EnvironmentObject var chatViewModel: ChatViewModel
     
+    @EnvironmentObject var contactsViewModel: ContactsViewModel
+    
     @State var selectedTab: Tabs = .contacts
     
     @State var isOnboarding = !AuthViewModel.isUserLoggedIn()
@@ -39,6 +41,12 @@ struct RootView: View {
                 
                 
             }
+            .onAppear(perform: {
+                if !isOnboarding {
+                    // User already onboarded, load contacts
+                    contactsViewModel.getLocalContacts()
+                }
+            })
             
             .fullScreenCover(isPresented: $isOnboarding) {
                 // On Dismiss
@@ -63,6 +71,7 @@ struct RootView: View {
             }
         }
     }
+    
 }
 
 struct RootView_Previews: PreviewProvider {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		642212A429533402009501A9 /* CacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642212A329533402009501A9 /* CacheService.swift */; };
 		643EDBBD2945DBF50014DE61 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643EDBBC2945DBF50014DE61 /* User.swift */; };
 		643EDBBF2945DCE70014DE61 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643EDBBE2945DCE70014DE61 /* DatabaseService.swift */; };
 		643EDBC12945DF5D0014DE61 /* TextHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643EDBC02945DF5D0014DE61 /* TextHelper.swift */; };
@@ -54,6 +55,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		642212A329533402009501A9 /* CacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheService.swift; sourceTree = "<group>"; };
 		643EDBBC2945DBF50014DE61 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		643EDBBE2945DCE70014DE61 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		643EDBC02945DF5D0014DE61 /* TextHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextHelper.swift; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				643EDBBE2945DCE70014DE61 /* DatabaseService.swift */,
+				642212A329533402009501A9 /* CacheService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 				646744AE294DD750006E496D /* ProfilePicView.swift in Sources */,
 				644FC96B294F529300C480D8 /* Chat.swift in Sources */,
 				643EDBC7294741B20014DE61 /* ImagePicker.swift in Sources */,
+				642212A429533402009501A9 /* CacheService.swift in Sources */,
 				6486EC5029445788003C5437 /* CreateProfileView.swift in Sources */,
 				64B7E5A3294332D8005BB1D3 /* SwiftUI_ChatApp.swift in Sources */,
 				6486EC54294457B2003C5437 /* PhoneNumberView.swift in Sources */,

@@ -178,7 +178,8 @@ struct ConversationView: View {
                       // Send button
                       Button {
                           
-                          // TODO: Clean up text msg
+                          // Clean up text msg
+                          chatMessage = chatMessage.trimmingCharacters(in: .whitespacesAndNewlines)
                           
                           // Send message
                           chatViewModel.sendMessage(msg: chatMessage)
@@ -193,6 +194,7 @@ struct ConversationView: View {
                               .frame(width: 24, height: 24)
                               .tint(Color("icons-primary"))
                       }
+                      .disabled(chatMessage.trimmingCharacters(in: .whitespacesAndNewlines) == "")
 
                   }
                   .padding(.horizontal)

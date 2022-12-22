@@ -104,8 +104,6 @@ struct ContactsView: View {
              
          }
          .padding(.horizontal)
-         .onAppear {
-             contactsViewModel.getLocalContacts()
-         }
+        
      }
  }
